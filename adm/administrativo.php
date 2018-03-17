@@ -1,8 +1,33 @@
 <?php
 	session_start();
 	include_once("seguranca.php");
-	include_once("conexao/conexao.php");
+	include_once("conexao/database.php");
 	seguranca_adm();
+
+	$id_users 				= $_SESSION['usuarioId'];
+	$nome  						= $_SESSION['usuarioNome'];
+	$nivel_de_acesso	= $_SESSION['usuarioNiveisAcessoId'];
+	$nivel_decision = nivel_de_acesso($nivel_de_acesso);
+	$email 						= $_SESSION['usuarioEmail'];
+	$id_tag 					= $_SESSION['id_tag'];
+	$tag 							= $_SESSION['tag'];
+	$description 			= $_SESSION['description'];
+	$created 					= $_SESSION['created'];
+
+	$Ativo="Activo";//DEve criar uma funçao que vai verificar se o user é online ou nao
+
+		function nivel_de_acesso($var)
+		{
+			if($var==1)
+				return "administrador";
+			elseif ($var=2)
+				return "Nivel2";
+			elseif ($var=2)
+				return "Nivel3";
+			else
+				echo "";
+		}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -51,7 +76,7 @@
 			</div><!--/.nav-collapse -->
 		</div>
     </nav>
-	
+
 	<div class="container theme-showcase" role="main">
 		<div class="page-header">
 			<h1>Usuários</h1>
@@ -71,17 +96,21 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>1</td>
-							<td>Cesar Szpak</td>
-							<td>Ativo</td>
-							<td>Administrador</td>
-							<td>10/10/1980 10:15:20</td>
-							<td>
-								<button type="button" class="btn btn-xs btn-primary">Visualizar</button>
-								<button type="button" class="btn btn-xs btn-warning">Editar</button>
-								<button type="button" class="btn btn-xs btn-danger">Apagar</button>
-							</td>
-						</tr>              
+							<?php
+
+								echo '<td>'.$id_users.'</td>';
+								echo '<td>'.$nome.'</td>';
+								echo '<td>'.$Ativo.'</td>';
+								echo '<td>'.$nivel_decision.'</td>';
+								echo '<td>'.$created.'</td>';
+
+								echo '<td>';
+									echo '<button type="button" class="btn btn-xs btn-primary">Visualizar</button>';
+									echo '<button type="button" class="btn btn-xs btn-warning">Editar</button>';
+									echo '<button type="button" class="btn btn-xs btn-danger">Apagar</button>';
+								echo '</td>'
+						?>
+						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -99,4 +128,3 @@
     <script src="js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
-
