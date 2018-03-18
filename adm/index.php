@@ -30,16 +30,20 @@
         <input type="password" name="txt_senha" id="inputPassword" class="form-control" placeholder="Senha" required>
         <button class="btn btn-lg btn-danger btn-block" type="submit">Acessar</button>
 		<p class="text-center text-danger">
-			<?php if(isset($_SESSION['loginErro'])){
+			<?php
+			if(isset($_SESSION['loginErro'])){
 				echo $_SESSION['loginErro'];
 				unset ($_SESSION['loginErro']);
 			}?>
 		</p>
 		<p class="text-center text-success">
-			<?php if(isset($_SESSION['loginDeslogado'])){
+			<?php
+
+			if(isset($_SESSION['loginDeslogado'])){
 				echo $_SESSION['loginDeslogado'];
 				unset ($_SESSION['loginDeslogado']);
-			}?>
+			}
+			?>
 		</p>
       </form>
     </div> <!-- /container -->

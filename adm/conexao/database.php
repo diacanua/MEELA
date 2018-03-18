@@ -10,14 +10,14 @@ class Database
 
     public static function connect()
     {
-          try{
-            self::$connection = new PDO('mysql:host='.self::$dbHost.';dbname='.self::$dbName,self::$dbUser,self::$dbUserPassword);
-        }
-        catch(PDOException $e)
-        {
-            die($e->getMessage());
-        }
-        return self::$connection;
+        try{
+          self::$connection = new PDO('mysql:host='.self::$dbHost.';dbname='.self::$dbName,self::$dbUser,self::$dbUserPassword);
+      }
+      catch(PDOException $e)
+      {
+          die($e->getMessage());
+      }
+      return self::$connection;
 
     }
 
@@ -25,10 +25,7 @@ class Database
     {
         self::$connection = null;
     }
-
-
 }
-
 
 function verifyInput($data)
   {
@@ -37,6 +34,19 @@ function verifyInput($data)
       $data = htmlspecialchars($data);
       return $data;
   }
+
+
+  		function nivel_de_acesso($var)
+  		{
+  			if($var==1)
+  				return "administrador";
+  			elseif ($var=2)
+  				return "Nivel2";
+  			elseif ($var=2)
+  				return "Nivel3";
+  			else
+  				echo "";
+  		}
 
 /*
 Database::connect();

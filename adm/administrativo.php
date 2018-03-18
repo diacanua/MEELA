@@ -1,33 +1,20 @@
 <?php
 	session_start();
-	include_once("seguranca.php");
+	//include_once("seguranca.php");
 	include_once("conexao/database.php");
-	seguranca_adm();
+	//seguranca_adm();
 
 	$id_users 				= $_SESSION['usuarioId'];
 	$nome  						= $_SESSION['usuarioNome'];
 	$nivel_de_acesso	= $_SESSION['usuarioNiveisAcessoId'];
-	$nivel_decision = nivel_de_acesso($nivel_de_acesso);
-	$email 						= $_SESSION['usuarioEmail'];
+	$nivel_decision 	= nivel_de_acesso($nivel_de_acesso);
+	$email 						= $_SESSION['email'];
 	$id_tag 					= $_SESSION['id_tag'];
 	$tag 							= $_SESSION['tag'];
 	$description 			= $_SESSION['description'];
 	$created 					= $_SESSION['created'];
 
 	$Ativo="Activo";//DEve criar uma funçao que vai verificar se o user é online ou nao
-
-		function nivel_de_acesso($var)
-		{
-			if($var==1)
-				return "administrador";
-			elseif ($var=2)
-				return "Nivel2";
-			elseif ($var=2)
-				return "Nivel3";
-			else
-				echo "";
-		}
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -103,11 +90,10 @@
 								echo '<td>'.$Ativo.'</td>';
 								echo '<td>'.$nivel_decision.'</td>';
 								echo '<td>'.$created.'</td>';
-
 								echo '<td>';
-									echo '<button type="button" class="btn btn-xs btn-primary">Visualizar</button>';
-									echo '<button type="button" class="btn btn-xs btn-warning">Editar</button>';
-									echo '<button type="button" class="btn btn-xs btn-danger">Apagar</button>';
+									echo '<a class="btn btn-default" href="view.php?id='.$id_users.'"><span class="glyphicon glyphicon-eye-open"></span> Visualisar</a>';
+									echo '<a class="btn btn-success" href="updates.php?id='.$id_users.'"><span class="glyphicon glyphicon-pencil"></span> Editar</a>';
+									echo '<a class="btn btn-danger" href="view.php?'.$id_users.'"><span class="glyphicon glyphicon-remove"></span> Apagar</a>';
 								echo '</td>'
 						?>
 						</tr>
