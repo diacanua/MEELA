@@ -65,9 +65,16 @@
     </nav>
 
 	<div class="container theme-showcase" role="main">
-		<div class="page-header">
-			<h1>Usuários</h1>
+		<div class="col">
+			<a   href="../index.php" class="btn btn-info">Home</a>
 		</div>
+		<div class="row">
+			<div class="page-header">
+				<h1>Usuários</h1>
+			</div>
+
+		<div>
+
 		<div class="row">
 			<div class="col-md-12">
 				<table class="table">
@@ -93,7 +100,7 @@
 								echo '<td>';
 									echo '<a class="btn btn-default" href="view.php?id='.$id_users.'"><span class="glyphicon glyphicon-eye-open"></span> Visualisar</a>';
 									echo '<a class="btn btn-success" href="updates.php?id='.$id_users.'"><span class="glyphicon glyphicon-pencil"></span> Editar</a>';
-									echo '<a class="btn btn-danger" href="view.php?'.$id_users.'"><span class="glyphicon glyphicon-remove"></span> Apagar</a>';
+									echo '<a class="btn btn-danger" href="view.php?id='.$id_users.'"><span class="glyphicon glyphicon-remove"></span> Apagar</a>';
 								echo '</td>'
 						?>
 						</tr>

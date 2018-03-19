@@ -1,5 +1,15 @@
 <?php
 	session_start();
+	$email=$senha="";
+	if(isset($_SESSION)&&!empty($_SESSION))
+	{
+		if(($_SESSION['email'] && $_SESSION['senha']))
+		{
+			$email=$_SESSION['email'];
+			$senha=$_SESSION['senha'];
+			header("Location:valida.php");
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
