@@ -49,15 +49,15 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Usuários</a></li>
+					<li><a href="Administrativo.php">Usuários</a></li>
 				
 					
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Atividades <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="galeriajcc.php">JCC</a></li>
-							<li><a href="#">CPM</a></li>
-							<li><a href="#">CIFMC</a></li>
+							<li><a href="galeriacpm.php">CPM</a></li>
+							<li><a href="galeriacifmc.php">CIFMC</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -71,42 +71,44 @@
 		</div>
 		<div class="row">
 			<div class="page-header">
-				<h1>Usuários</h1>
+				<h1>Galeria JCC</h1>
 			</div>
 
 		<div>
 
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Inscrição</th>
-							<th>Nome</th>
-							<th>Situação</th>
-							<th>Nivel de acesso</th>
-							<th>Cadastrado</th>
-							<th>Ações</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<?php
+		
 
-								echo '<td>'.$id_users.'</td>';
-								echo '<td>'.$nome.'</td>';
-								echo '<td>'.$Ativo.'</td>';
-								echo '<td>'.$nivel_decision.'</td>';
-								echo '<td>'.$created.'</td>';
-								echo '<td>';
-									echo '<a class="btn btn-default" href="view.php?id='.$id_users.'"><span class="glyphicon glyphicon-eye-open"></span> Visualisar</a>';
-									echo '<a class="btn btn-success" href="updates.php?id='.$id_users.'"><span class="glyphicon glyphicon-pencil"></span> Editar</a>';
-									echo '<a class="btn btn-danger" href="view.php?id='.$id_users.'"><span class="glyphicon glyphicon-remove"></span> Apagar</a>';
-								echo '</td>'
-						?>
-						</tr>
-					</tbody>
-				</table>
+				<form>
+					  <div class="col-md-6">
+					    <label for="exampleInputEmail1">Titulo</label>
+					    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+					  </div>
+
+					 <div class="col-md-6">
+					    <label for="tag">Descricão da Tag</label>
+					    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+					  </div>
+
+
+
+					  <div class="col-md-6">
+					    <label for="exampleInputPassword1">Descricão Curta</label>
+					    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+					  </div>
+
+					  <div class="col-md-6">
+					  <label for="descricao longa">Descricão Longa</label>
+                                <textarea class="form-control input-lg" placeholder="Sua mensagem! *" required></textarea>
+                            </div>
+
+							<form>
+							  <div class="col-md-6">
+							    <label for="exampleFormControlFile1">inserir Imagem </label>
+							    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+							  </div>
+							</form>
 			</div>
 		</div>
 	</div>
