@@ -9,7 +9,6 @@
 	$nivel_de_acesso	= $_SESSION['usuarioNiveisAcessoId'];
 	$nivel_decision 	= nivel_de_acesso($nivel_de_acesso);
 	$email 						= $_SESSION['email'];
-	$id_tag 					= $_SESSION['id_tag'];
 	$tag 							= $_SESSION['tag'];
 	$description 			= $_SESSION['description'];
 	$created 					= $_SESSION['created'];
@@ -25,6 +24,8 @@
 		<meta name="description" content="">
 		<meta name="author" content="diacanua daniel - Pedro">
 		<link rel="icon" href="imagens/favicon.ico">
+		<!--Para icon do tipo i -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 		<title>Administrativo - Meela</title>
 		<link href="css/bootstrap.css" rel="stylesheet">
@@ -50,8 +51,8 @@
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="#">Usuários</a></li>
-				
-					
+
+
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Atividades <span class="caret"></span></a>
 						<ul class="dropdown-menu">
@@ -72,6 +73,7 @@
 		<div class="row">
 			<div class="page-header">
 				<h1>Usuários</h1>
+				<a class="btn btn-info" href="insertgaleria.php">	<i class="material-icons">add_circle</i></span>Addicionar</a>
 			</div>
 
 		<div>

@@ -43,6 +43,8 @@
     <link rel="icon" href="../../favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Website - Meela</title>
+    <!--Para icon do tipo i -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -120,8 +122,8 @@
 
              $db = Database::connect();//Connection
              $statement = $db->prepare('SELECT g.titre titulo,g.image pic ,g.descricao_curta desc_curta
-               from galeria g inner join area_galeria a on g.id_area=a.id_area
-               INNER JOIN tag t on g.id_galeria=t.id_tag');
+from galeria g
+inner join area_galeria a on g.id_area=a.id_area');
              $statement->execute();
               while($portoLigne = $statement->fetch())
               {
@@ -248,7 +250,6 @@
 <!-- Rodape -->
 
     <?php
-
         include_once("rodape.php");
     ?>
 

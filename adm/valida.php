@@ -9,7 +9,7 @@
 		$senha = md5(verifyInput($_POST['txt_senha']));
 		$nivel="";
 		$db = Database::connect();
-		$statement = $db->prepare('SELECT * from users u inner join tag t ON u.id_tag=t.id_tag WHERE u.email=? and u.senha=?');
+		$statement = $db->prepare('SELECT * from users WHERE email=? and senha=?');
 		$statement->execute(array($email,$senha));
 		$resultado = $statement->fetch();
 		//Encontrando um usuário na tabela usuario com os mesmos dados digitado pelo usuario
@@ -20,7 +20,6 @@
 			$_SESSION['senha'] = $resultado['senha'];
 			$_SESSION['email'] = $resultado['email'];
 			$_SESSION['usuarioNiveisAcessoId'] = $resultado['nivel_de_acesso'];
-			$_SESSION['id_tag'] = $resultado['id_tag'];
 			$_SESSION['tag'] = $resultado['tag'];
 			$_SESSION['description'] = $resultado['description'];
 			$_SESSION['created'] = $resultado['created'];
@@ -36,6 +35,7 @@
 				header("Location: cliente.php");
 			}else
 			{
+
 				$_SESSION['loginErro'] = "Erro - Entre em contato cesar@celke.com.br";
 				header("Location: index.php");
 			}
@@ -53,9 +53,11 @@
 	{
 		$email=$_SESSION['email'];
 		$senha=$_SESSION['senha'];
-		
+
 		$db = Database::connect();
-		$statement = $db->prepare('SELECT * from users u inner join tag t ON u.id_tag=t.id_tag WHERE u.email=? and u.senha=?');
+		$statement = $db->prepare('SELECT id_users,nome,senha,email, nivel_de_acesso,
+																tag,description, created
+																from users WHERE email=? and senha=?');
 		$statement->execute(array($email,$senha));
 		$resultado = $statement->fetch();
 		//Encontrando um usuário na tabela usuario com os mesmos dados digitado pelo usuario
@@ -66,7 +68,6 @@
 			$_SESSION['senha'] = $resultado['senha'];
 			$_SESSION['email'] = $resultado['email'];
 			$_SESSION['usuarioNiveisAcessoId'] = $resultado['nivel_de_acesso'];
-			$_SESSION['id_tag'] = $resultado['id_tag'];
 			$_SESSION['tag'] = $resultado['tag'];
 			$_SESSION['description'] = $resultado['description'];
 			$_SESSION['created'] = $resultado['created'];

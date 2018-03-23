@@ -19,7 +19,7 @@
 
 		//Tratamento da imagem
 		$imagem =  verifyInput($_FILES['imagem']['name']);
-    $imagemPath =  'imagens/cfim/'. basename($imagem);
+    $imagemPath =  'imagens/todas/'. basename($imagem);
     $imagemExtension = pathinfo($imagemPath,PATHINFO_EXTENSION);
 
     $isSuccess =  true;
@@ -106,7 +106,6 @@
 				{
 					var_dump($id_area);
 				}
-
 	}else
 	{
 		var_dump("pas de post");
@@ -148,8 +147,6 @@
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="Administrativo.php">Usuários</a></li>
-
-
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Atividades <span class="caret"></span></a>
 						<ul class="dropdown-menu">

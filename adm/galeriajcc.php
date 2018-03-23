@@ -7,9 +7,8 @@
 	$id_users 				= $_SESSION['usuarioId'];
 	$nome  						= $_SESSION['usuarioNome'];
 	$nivel_de_acesso	= $_SESSION['usuarioNiveisAcessoId'];
-	$nivel_decision 	= nivel_de_acesso($nivel_de_acesso);
+	$nivel_decision 	= nivel_de_acesso($_SESSION['nivel_de_acesso']);
 	$email 						= $_SESSION['email'];
-	$id_tag 					= $_SESSION['id_tag'];
 	$tag 							= $_SESSION['tag'];
 	$description 			= $_SESSION['description'];
 	$created 					= $_SESSION['created'];
@@ -50,8 +49,8 @@
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="Administrativo.php">Usuários</a></li>
-				
-					
+
+
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Atividades <span class="caret"></span></a>
 						<ul class="dropdown-menu">
@@ -78,7 +77,7 @@
 
 		<div class="row">
 			<div class="col-md-12">
-		
+
 
 				<form>
 					  <div class="col-md-6">
